@@ -85,6 +85,7 @@ GUI.propTypes = {
     onUpdateProjectTitle: PropTypes.func,
     onUpdateReduxProjectTitle: PropTypes.func,
     previewInfoVisible: PropTypes.bool,
+    projectData: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     projectHost: PropTypes.string,
     projectTitle: PropTypes.string,
     vm: PropTypes.instanceOf(VM).isRequired
@@ -102,7 +103,6 @@ const mapStateToProps = (state, ownProps) => ({
     isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
     isRtl: state.locales.isRtl,
     loadingStateVisible: state.scratchGui.modals.loadingProject,
-    previewInfoVisible: state.scratchGui.modals.previewInfo && !ownProps.hideIntro,
     targetIsStage: (
         state.scratchGui.targets.stage &&
         state.scratchGui.targets.stage.id === state.scratchGui.targets.editingTarget
