@@ -121,6 +121,7 @@ GUI.propTypes = {
     onUpdateProjectTitle: PropTypes.func,
     onUpdateReduxProjectTitle: PropTypes.func,
     previewInfoVisible: PropTypes.bool,
+    projectData: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     projectHost: PropTypes.string,
     projectId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     projectTitle: PropTypes.string,
@@ -161,7 +162,6 @@ const mapStateToProps = state => {
         vm: state.scratchGui.vm
     };
 };
-
 const mapDispatchToProps = dispatch => ({
     onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
     onActivateTab: tab => dispatch(activateTab(tab)),
