@@ -22,7 +22,6 @@ import CostumeLibrary from '../../containers/costume-library.jsx';
 import BackdropLibrary from '../../containers/backdrop-library.jsx';
 
 import Backpack from '../../containers/backpack.jsx';
-import PreviewModal from '../../containers/preview-modal.jsx';
 import ImportModal from '../../containers/import-modal.jsx';
 import WebGlModal from '../../containers/webgl-modal.jsx';
 import TipsLibrary from '../../containers/tips-library.jsx';
@@ -84,8 +83,6 @@ const GUIComponent = props => {
         onRequestCloseBackdropLibrary,
         onRequestCloseCostumeLibrary,
         onSeeCommunity,
-        onShare,
-        previewInfoVisible,
         targetIsStage,
         soundsTabVisible,
         stageSizeMode,
@@ -129,9 +126,6 @@ const GUIComponent = props => {
                 dir={isRtl ? 'rtl' : 'ltr'}
                 {...componentProps}
             >
-                {previewInfoVisible ? (
-                    <PreviewModal />
-                ) : null}
                 {loading ? (
                     <Loader />
                 ) : null}
@@ -329,7 +323,6 @@ GUIComponent.propTypes = {
     onTabSelect: PropTypes.func,
     onToggleLoginOpen: PropTypes.func,
     onUpdateProjectTitle: PropTypes.func,
-    previewInfoVisible: PropTypes.bool,
     renderLogin: PropTypes.func,
     soundsTabVisible: PropTypes.bool,
     stageSizeMode: PropTypes.oneOf(Object.keys(STAGE_SIZE_MODES)),
