@@ -15,7 +15,6 @@ import CostumeTab from '../../containers/costume-tab.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
 import SoundTab from '../../containers/sound-tab.jsx';
 import StageWrapper from '../../containers/stage-wrapper.jsx';
-import Loader from '../loader/loader.jsx';
 import Box from '../box/box.jsx';
 import MenuBar from '../menu-bar/menu-bar.jsx';
 import CostumeLibrary from '../../containers/costume-library.jsx';
@@ -104,7 +103,6 @@ const GUIComponent = props => {
         targetIsStage,
         soundsTabVisible,
         stageSizeMode,
-        targetIsStage,
         tipsLibraryVisible,
         vm,
         ...componentProps
@@ -146,9 +144,6 @@ const GUIComponent = props => {
                 dir={isRtl ? 'rtl' : 'ltr'}
                 {...componentProps}
             >
-                {loading ? (
-                    <Loader />
-                ) : null}
                 {importInfoVisible ? (
                     <ImportModal />
                 ) : null}
@@ -384,7 +379,7 @@ GUIComponent.propTypes = {
 GUIComponent.defaultProps = {
     backpackHost: null,
     backpackVisible: false,
-    basePath: './',
+    basePath: 'http://localhost:8601/',
     canCreateNew: false,
     canEditTitle: false,
     canRemix: false,
