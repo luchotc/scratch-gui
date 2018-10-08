@@ -34,7 +34,6 @@ deploy:
     branch:
     - master
     - develop
-    - develop-local
     - smoke
   skip_cleanup: true
   email: $NPM_EMAIL
