@@ -18,7 +18,8 @@ analytics.pageview('/');
 
 const appTarget = document.createElement('div');
 appTarget.className = styles.app;
-document.body.appendChild(appTarget);
+const scratch = document.querySelector(".mu-scratch-custom-editor");
+scratch.appendChild(appTarget);
 
 if (supportedBrowser()) {
     // require needed here to avoid importing unsupported browser-crashing code
