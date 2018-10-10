@@ -175,25 +175,6 @@ class MenuBar extends React.Component {
         }
     }
     render () {
-        const saveNowMessage = (
-            <FormattedMessage
-                defaultMessage="Save now"
-                description="Menu bar item for saving now"
-                id="gui.menuBar.saveNow"
-            />
-        );
-        const shareButton = (
-            <Button
-                className={classNames(styles.shareButton)}
-                onClick={this.props.onShare}
-            >
-                <FormattedMessage
-                    defaultMessage="Share"
-                    description="Label for project share button"
-                    id="gui.menuBar.share"
-                />
-            </Button>
-        );
         return (
             <Box
                 className={classNames(styles.menuBar, {
@@ -232,19 +213,6 @@ class MenuBar extends React.Component {
                             <LanguageSelector label={this.props.intl.formatMessage(ariaMessages.language)} />
                         </div>
                     </div>
-                    <Divider className={classNames(styles.divider)} />
-                    <div
-                        aria-label={this.props.intl.formatMessage(ariaMessages.tutorials)}
-                        className={classNames(styles.menuBarItem, styles.hoverable)}
-                        onClick={this.props.onOpenTipLibrary}
-                    >
-                        <img
-                            className={styles.helpIcon}
-                            src={helpIcon}
-                        />
-                        <FormattedMessage {...ariaMessages.tutorials} />
-                    </div>
-                    <Divider className={classNames(styles.divider)} />
                 </div>
             </Box>
         );

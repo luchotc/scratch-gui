@@ -82,7 +82,6 @@ class GUI extends React.Component {
         const {
             /* eslint-disable no-unused-vars */
             assetHost,
-            hideIntro,
             onUpdateReduxProjectTitle,
             projectData,
             projectHost,
@@ -110,7 +109,6 @@ GUI.propTypes = {
     assetHost: PropTypes.string,
     children: PropTypes.node,
     fetchingProject: PropTypes.bool,
-    hideIntro: PropTypes.bool,
     importInfoVisible: PropTypes.bool,
     loadingStateVisible: PropTypes.bool,
     onSeeCommunity: PropTypes.func,
