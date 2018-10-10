@@ -75,7 +75,6 @@ GUI.propTypes = {
     children: PropTypes.node,
     errorMessage: PropTypes.string,
     fetchingProject: PropTypes.bool,
-    hideIntro: PropTypes.bool,
     importInfoVisible: PropTypes.bool,
     isLoading: PropTypes.bool,
     loadingError: PropTypes.bool,

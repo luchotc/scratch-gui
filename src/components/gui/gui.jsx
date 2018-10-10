@@ -162,7 +162,6 @@ const GUIComponent = props => {
                     onLogOut={onLogOut}
                     onOpenRegistration={onOpenRegistration}
                     onSeeCommunity={onSeeCommunity}
-                    onShare={onShare}
                     onToggleLoginOpen={onToggleLoginOpen}
                     onUpdateProjectTitle={onUpdateProjectTitle}
                 />
