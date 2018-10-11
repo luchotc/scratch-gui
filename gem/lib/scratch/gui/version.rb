@@ -1,5 +1,5 @@
 module Scratch
   module GUI
-    VERSION = "1.17.0"
+    VERSION = "0.1.0"
   end
 end

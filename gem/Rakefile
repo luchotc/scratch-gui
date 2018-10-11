@@ -15,19 +15,10 @@ namespace :wrapper do
     cp_r '../build/lib.min.js', 'app/assets/javascripts'
     cp_r '../build/gui.js', 'app/assets/javascripts'
 
-    # polymer
-    cp_r '../bower_components/polymer/polymer.html', 'app/assets/htmls/vendor'
-    cp_r '../bower_components/polymer/polymer-mini.html', 'app/assets/htmls/vendor'
-    cp_r '../bower_components/polymer/polymer-micro.html', 'app/assets/htmls/vendor'
-
-    # webcomponents
-    cp_r '../bower_components/webcomponentsjs/webcomponents.min.js', 'app/assets/javascripts/vendor'
   end
 
   task :clean do
     rm_rf 'app'
-    mkdir_p 'app/assets/htmls'
-    mkdir_p 'app/assets/htmls/vendor'
-    mkdir_p 'app/assets/javascripts/vendor'
+    mkdir_p 'app/assets/javascripts'
   end
 end
