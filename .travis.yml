@@ -13,4 +13,4 @@ deploy:
   gem: scratch-gui
   on:
     tags: true
-    repo: luchtoc/scratch-gui
+    repo: luchotc/scratch-gui

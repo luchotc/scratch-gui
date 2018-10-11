@@ -25,6 +25,6 @@ echo "[Scratch::GUI] Tagging $NEW_VERSION..."
 git tag "${NEW_VERSION}"
 
 echo "[Scratch::GUI] Pushing..."
-git push --force-with-lease origin HEAD --tags
+git push origin HEAD --tags
 
 echo "[Scratch::GUI] Pushed. Travis will do the rest"
