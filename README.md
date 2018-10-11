@@ -6,14 +6,8 @@
 
 ## Installation
 This requires you to have Git and Node.js installed.
-
-In your own node environment/application:
 ```bash
-npm install https://github.com/LLK/scratch-gui.git
-```
-If you want to edit/play yourself:
-```bash
-git clone git@github.com:LLK/scratch-gui.git
+git clone git@github.com:luchotc/scratch-gui.git
 cd scratch-gui
 npm install
 ```
@@ -53,13 +47,6 @@ Instead of `BUILD_MODE=dist npm run build` you can also use `BUILD_MODE=dist npm
 * Make sure the repositories are siblings on your machine's file tree.
 * If you have multiple Terminal tabs or windows open for the different Scratch repositories, make sure to use the same node version in all of them.
 * In the worst case unlink the repositories by running `npm unlink` in both, and start over.
-
-## Testing
-### Documentation
-
-You may want to review the documentation for [Jest](https://facebook.github.io/jest/docs/en/api.html) and [Enzyme](http://airbnb.io/enzyme/docs/api/) as you write your tests.
-
-See [jest cli docs](https://facebook.github.io/jest/docs/en/cli.html#content) for more options.
 
 ### Running tests
 
@@ -121,9 +108,20 @@ If you want to watch the browser as it runs the test, rather than running headle
 USE_HEADLESS=no $(npm bin)/jest --runInBand test/integration/backpack.test.js
 ```
 
-## Publishing to GitHub Pages
-You can publish the GUI to github.io so that others on the Internet can view it.
-[Read the wiki for a step-by-step guide.](https://github.com/LLK/scratch-gui/wiki/Publishing-to-GitHub-Pages)
+## Gem wrapper
 
-## Donate
-We provide [Scratch](https://scratch.mit.edu) free of charge, and want to keep it that way! Please consider making a [donation](https://secure.donationpay.org/scratchfoundation/) to support our continued engineering, design, community, and resource development efforts. Donations of any size are appreciated. Thank you!
+This module can also be deployed a ruby gem. `scratch-gui` works with Ruby 2.3.1
+
+```bash
+cd gem
+rake wrapper:wrap
+bundle install
+bundle exec rspec
+```
+
+## Tagging and releasing
+
+```bash
+./tag.sh
+```
+
