@@ -1,7 +1,7 @@
 require "scratch/gui/version"
 
 module Scratch
-  module Gui
+  module GUI
     class Engine < ::Rails::Engine
     end if defined? ::Rails::Engine
 
