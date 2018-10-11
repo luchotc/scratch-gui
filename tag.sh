@@ -13,8 +13,7 @@ fi
 
 echo "[Scratch::GUI] Updating version..."
 sed -i -r "s/\"version\": \"${VERSION_REGEXP}/\"version\": \"${NEW_VERSION}/" package.json
-sed -i -r "s/\"version\": \"${VERSION_REGEXP}/\"version\": \"${NEW_VERSION}/" bower.json
-sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" gem/lib/gobstones/board/version.rb
+sed -i -r "s/VERSION = \"${VERSION_REGEXP}/VERSION = \"${NEW_VERSION}/" gem/lib/scratch/gui/version.rb
 
 echo "[Scratch::GUI] Generating dist..."
 npm run build
@@ -26,6 +25,6 @@ echo "[Scratch::GUI] Tagging $NEW_VERSION..."
 git tag "${NEW_VERSION}"
 
 echo "[Scratch::GUI] Pushing..."
-git push origin HEAD --tags
+git push --force-with-lease origin HEAD --tags
 
 echo "[Scratch::GUI] Pushed. Travis will do the rest"

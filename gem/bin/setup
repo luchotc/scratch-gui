@@ -3,5 +3,6 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
+gem install bundler
 bundle install
 bundle exec rake wrapper:wrap
