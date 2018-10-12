@@ -14,7 +14,7 @@ namespace :wrapper do
     #  javascript assets
     cp_r '../build/lib.min.js', 'app/assets/javascripts'
     cp_r '../build/gui.js', 'app/assets/javascripts'
-    cp_r '../build/static/*', '../public'
+    cp_r '../build/static', '../public'
   end
 
   task :clean do
