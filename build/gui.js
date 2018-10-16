@@ -145,6 +145,8 @@ var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/i
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
 var _appStateHoc = __webpack_require__(/*! ../lib/app-state-hoc.jsx */ "./src/lib/app-state-hoc.jsx");
 
 var _appStateHoc2 = _interopRequireDefault(_appStateHoc);
@@ -170,7 +172,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 exports.default = function (appTarget) {
     _gui2.default.setAppElement(appTarget);
-    var WrappedGui = (0, _hashParserHoc2.default)((0, _appStateHoc2.default)((0, _titledHoc2.default)(_gui2.default)));
+
+    // note that redux's 'compose' function is just being used as a general utility to make
+    // the hierarchy of HOC constructor calls clearer here; it has nothing to do with redux's
+    // ability to compose reducers.
+    var WrappedGui = (0, _redux.compose)(_appStateHoc2.default, _hashParserHoc2.default, _titledHoc2.default)(_gui2.default);
 
     // TODO a hack for testing the backpack, allow backpack host to be set by url param
     var backpackHostMatches = window.location.href.match(/[?&]backpack_host=([^&]*)&?/);

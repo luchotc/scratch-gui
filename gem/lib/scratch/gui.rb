@@ -6,7 +6,7 @@ module Scratch
     end if defined? ::Rails::Engine
 
     ASSETS_PATH = File.join(__dir__, '..', '..', 'app', 'assets')
-    PUBLIC_PATH = File.join(__dir__, '..', '..', 'public', 'static')
+    PUBLIC_PATH = File.join(ASSETS_PATH, 'static')
 
     def self.assets_path_for(asset)
       File.join ASSETS_PATH, asset
