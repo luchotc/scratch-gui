@@ -7,7 +7,7 @@ import React from 'react';
 
 import Box from '../box/box.jsx';
 import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
-import Divider from '../divider/divider.jsx';
+import LanguageSelector from '../../containers/language-selector.jsx';
 import {openTipsLibrary} from '../../reducers/modals';
 import {setPlayer} from '../../reducers/mode';
 import {
@@ -18,9 +18,6 @@ import {
 } from '../../reducers/project-state';
 
 import {
-    openLanguageMenu,
-    closeLanguageMenu,
-    languageMenuOpen,
     openAccountMenu,
     closeAccountMenu,
     accountMenuOpen,
@@ -30,6 +27,9 @@ import {
     openEditMenu,
     closeEditMenu,
     editMenuOpen,
+    openLanguageMenu,
+    closeLanguageMenu,
+    languageMenuOpen,
     openLoginMenu,
     closeLoginMenu,
     loginMenuOpen

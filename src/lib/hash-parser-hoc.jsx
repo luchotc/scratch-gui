@@ -58,8 +58,8 @@ const HashParserHOC = function (WrappedComponent) {
             } = this.props;
             return (
                 <WrappedComponent
-                    projectId={this.state.projectId}
-                    {...this.props}
+                    hideIntro={this.state.hideIntro}
+                    {...componentProps}
                 />
             );
         }
