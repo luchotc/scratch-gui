@@ -14,13 +14,11 @@ namespace :wrapper do
     #  javascript assets
     cp_r '../build/lib.min.js', 'app/assets/javascripts'
     cp_r '../build/gui.js', 'app/assets/javascripts'
-    cp_r '../build/static', 'public'
+    cp_r '../build/static', 'app/assets/'
   end
 
   task :clean do
     rm_rf 'app'
-    rm_rf 'public'
     mkdir_p 'app/assets/javascripts'
-    mkdir_p 'public'
   end
 end
