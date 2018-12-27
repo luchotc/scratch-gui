@@ -43,7 +43,8 @@ const vmManagerHOC = function (WrappedComponent) {
             // if project is in loading state, AND fonts are loaded,
             // and they weren't both that way until now... load project!
             if (this.props.isLoadingWithId && this.props.fontsLoaded &&
-                (!prevProps.isLoadingWithId || !prevProps.fontsLoaded)) {
+                (!prevProps.isLoadingWithId || !prevProps.fontsLoaded) &&
+                !scratchVm.loadedExternally) {
                 this.loadProject();
             }
             // Start the VM if entering editor mode with an unstarted vm
