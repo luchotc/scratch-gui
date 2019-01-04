@@ -19,18 +19,28 @@ analytics.pageview('/');
 
 const appTarget = document.createElement('div');
 appTarget.className = styles.app;
-const scratch = document.querySelector(".mu-scratch-custom-editor");
-scratch.appendChild(appTarget);
 
-if (supportedBrowser()) {
+const checkExist = setInterval(function() {
+  let scratchSelector = document.querySelector(".mu-scratch-custom-editor");
+  if (scratchSelector) {
+    clearInterval(checkExist);
+    renderScratchGui(scratchSelector, appTarget)
+  }
+}, 100);
+
+const renderScratchGui = function (scratchSelector, appTarget) {
+  scratchSelector.appendChild(appTarget);
+
+  if (supportedBrowser()) {
     // require needed here to avoid importing unsupported browser-crashing code
     // at the top level
     require('./render-gui.jsx').default(appTarget);
 
-} else {
+  } else {
     BrowserModalComponent.setAppElement(appTarget);
     const WrappedBrowserModalComponent = AppStateHOC(BrowserModalComponent, true /* localesOnly */);
     const handleBack = () => {};
     // eslint-disable-next-line react/jsx-no-bind
     ReactDOM.render(<WrappedBrowserModalComponent onBack={handleBack} />, appTarget);
-}
+  }
+};
