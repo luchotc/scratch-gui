@@ -1,0 +1,17 @@
+#!/bin/bash
+
+: ${ENV:=development}
+
+buildApp () {
+	npm install;
+	NODE_ENV=$ENV BUILD_MODE=dist npm run build;
+};
+
+cd $SCRATCH_VM_PATH;
+buildApp
+cd $SCRATCH_GUI_PATH;
+npm link scratch-vm;
+buildApp
+cd gem;
+rake wrapper:wrap;
+echo "Scratch built :D";

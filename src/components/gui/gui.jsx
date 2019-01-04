@@ -378,7 +378,7 @@ GUIComponent.propTypes = {
 GUIComponent.defaultProps = {
     backpackHost: null,
     backpackVisible: false,
-    basePath: 'http://localhost:8601/',
+    basePath: ASSETS_URL,
     canCreateNew: false,
     canEditTitle: false,
     canRemix: false,

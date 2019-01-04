@@ -1,8 +1,43 @@
 # scratch-gui
 #### Scratch GUI is a set of React components that comprise the interface for creating and running Scratch 3.0 projects
 
-[![Build Status](https://travis-ci.com/LLK/scratch-gui.svg?token=Yfq2ryN1BwaxDME69Lnc&branch=master)](https://travis-ci.com/LLK/scratch-gui)
-[![Greenkeeper badge](https://badges.greenkeeper.io/LLK/scratch-gui.svg)](https://greenkeeper.io/)
+## Mu Stuff
+
+### Easily build the gem
+
+Clone scratch-vm
+```bash
+git clone git@github.com:luchotc/scratch-vm.git
+```
+
+Run build-scratch script located at the root of this repo. 
+You'll need to provide the local path for both this repo and scratch-vm.
+To do so export SCRATCH_VM_PATH and SCRATCH_GUI_PATH. 
+You can also specify the build type by setting the ENV variable. 
+You can set it to development or production mode. 
+The default one is development
+
+```bash
+SCRATCH_VM_PATH=path/to/vm SCRATCH_GUI_PATH=path/to/gui ENV=production ./build-scratch
+```
+
+### Gem wrapper
+
+This module can also be deployed a ruby gem. `scratch-gui` works with Ruby 2.3.1
+
+```bash
+cd gem
+rake wrapper:wrap
+bundle install
+bundle exec rspec
+```
+
+### Tagging and releasing
+
+```bash
+./tag.sh
+```
+
 
 ## Installation
 This requires you to have Git and Node.js installed.
@@ -106,22 +141,5 @@ If you want to watch the browser as it runs the test, rather than running headle
 
 ```bash
 USE_HEADLESS=no $(npm bin)/jest --runInBand test/integration/backpack.test.js
-```
-
-## Gem wrapper
-
-This module can also be deployed a ruby gem. `scratch-gui` works with Ruby 2.3.1
-
-```bash
-cd gem
-rake wrapper:wrap
-bundle install
-bundle exec rspec
-```
-
-## Tagging and releasing
-
-```bash
-./tag.sh
 ```
 

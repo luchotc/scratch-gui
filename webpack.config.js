@@ -12,6 +12,8 @@ var autoprefixer = require('autoprefixer');
 var postcssVars = require('postcss-simple-vars');
 var postcssImport = require('postcss-import');
 
+const assetsUrl = process.env.NODE_ENV === 'production' ? 'https://scratch.runners.mumuki.io' : 'http://localhost:8601';
+
 const base = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
@@ -89,7 +91,11 @@ const base = {
             })
         ]
     },
-    plugins: []
+    plugins: [
+      new webpack.DefinePlugin({
+        ASSETS_URL: JSON.stringify(assetsUrl)
+      })
+    ]
 };
 
 module.exports = [
@@ -97,10 +103,7 @@ module.exports = [
     defaultsDeep({}, base, {
         entry: {
             'lib.min': ['react', 'react-dom'],
-            'gui': './src/playground/index.jsx',
-            'blocksonly': './src/playground/blocks-only.jsx',
-            'compatibilitytesting': './src/playground/compatibility-testing.jsx',
-            'player': './src/playground/player.jsx'
+            'gui': './src/playground/index.jsx'
         },
         output: {
             path: path.resolve(__dirname, 'build'),
@@ -117,7 +120,7 @@ module.exports = [
                     loader: 'file-loader',
                     options: {
                         outputPath: 'static/assets/',
-                        publicPath: 'http://localhost:8601/static/assets/'
+                        publicPath: `${assetsUrl}/static/assets/`
                     }
                 }
             ])
@@ -180,7 +183,8 @@ module.exports = [
             }])
         ])
     })
-].concat(
+];
+/*.concat(
     process.env.NODE_ENV === 'production' || process.env.BUILD_MODE === 'dist' ? (
         // export as library
         defaultsDeep({}, base, {
@@ -220,3 +224,4 @@ module.exports = [
             ])
         })) : []
 );
+*/
