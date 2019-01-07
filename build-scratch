@@ -3,11 +3,15 @@
 : ${ENV:=development}
 
 buildApp () {
-	npm install;
 	NODE_ENV=$ENV BUILD_MODE=dist npm run build;
 };
 
+cd $SCRATCH_GUI_PATH;
+npm install;
+
 cd $SCRATCH_VM_PATH;
+npm install;
+npm link;
 buildApp
 cd $SCRATCH_GUI_PATH;
 npm link scratch-vm;
