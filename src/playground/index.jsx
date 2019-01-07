@@ -14,19 +14,58 @@ import supportedBrowser from '../lib/supported-browser';
 
 import styles from './index.css';
 
+(function($){
+  $.event.special.destroyed = {
+    remove: function(o) {
+      if (o.handler) {
+        o.handler();
+      }
+    }
+  }
+})(jQuery);
+
 // Register "base" page view
 analytics.pageview('/');
 
 const appTarget = document.createElement('div');
 appTarget.className = styles.app;
+const scratchGui = require('./render-gui.jsx');
+const scratchSelectorClass = ".mu-scratch-custom-editor";
 
-const checkExist = setInterval(function() {
-  let scratchSelector = document.querySelector(".mu-scratch-custom-editor");
+const getScratchSelector = function () {
+  return document.querySelector(scratchSelectorClass);
+};
+
+let onDestroyedInterval;
+
+const reattachOnDestroy = function (validScratch) {
+  $(scratchSelectorClass).bind('destroyed', () => {
+    clearInterval(onDestroyedInterval);
+    onDestroyedInterval = setInterval(() => {
+      checkScratchPresence((scratchSelector) => {
+        scratchVm.loadCurrentContent();
+        scratchSelector.appendChild(validScratch);
+        return scratchSelector;
+      }, onDestroyedInterval);
+    }, 200)
+  })
+};
+
+const createScratchInterval = setInterval(function() {
+  checkScratchPresence((scratchSelector) => {
+    renderScratchGui(scratchSelector, appTarget);
+    return getScratchSelector();
+  }, createScratchInterval);
+}, 200);
+
+const checkScratchPresence = function (actions, interval) {
+  let scratchSelector = getScratchSelector();
   if (scratchSelector) {
-    clearInterval(checkExist);
-    renderScratchGui(scratchSelector, appTarget)
+    clearInterval(interval);
+    let validScratch = actions(scratchSelector);
+    reattachOnDestroy(validScratch)
   }
-}, 100);
+};
 
 const renderScratchGui = function (scratchSelector, appTarget) {
   scratchSelector.appendChild(appTarget);
@@ -34,7 +73,8 @@ const renderScratchGui = function (scratchSelector, appTarget) {
   if (supportedBrowser()) {
     // require needed here to avoid importing unsupported browser-crashing code
     // at the top level
-    require('./render-gui.jsx').default(appTarget);
+    scratchGui.default(appTarget);
+
 
   } else {
     BrowserModalComponent.setAppElement(appTarget);
