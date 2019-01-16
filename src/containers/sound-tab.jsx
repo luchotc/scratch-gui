@@ -215,7 +215,8 @@ class SoundTab extends React.Component {
                     onClick: this.handleFileUploadClick,
                     fileAccept: '.wav, .mp3',
                     fileChange: this.handleSoundUpload,
-                    fileInput: this.setFileInput
+                    fileInput: this.setFileInput,
+                    hidden: true
                 }, {
                     title: intl.formatMessage(messages.surpriseSound),
                     img: surpriseIcon,
@@ -223,7 +224,8 @@ class SoundTab extends React.Component {
                 }, {
                     title: intl.formatMessage(messages.recordSound),
                     img: addSoundFromRecordingIcon,
-                    onClick: onNewSoundFromRecordingClick
+                    onClick: onNewSoundFromRecordingClick,
+                    hidden: true
                 }, {
                     title: intl.formatMessage(messages.addSound),
                     img: searchIcon,
@@ -238,7 +240,7 @@ class SoundTab extends React.Component {
                 onDuplicateClick={this.handleDuplicateSound}
                 onItemClick={this.handleSelectSound}
             >
-                {sprite.sounds && sprite.sounds[this.state.selectedSoundIndex] ? (
+                {/*sprite.sounds && sprite.sounds[this.state.selectedSoundIndex]*/ false ? (
                     <SoundEditor soundIndex={this.state.selectedSoundIndex} />
                 ) : null}
                 {this.props.soundRecorderVisible ? (

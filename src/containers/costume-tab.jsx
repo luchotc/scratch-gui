@@ -274,7 +274,8 @@ class CostumeTab extends React.Component {
                     {
                         title: intl.formatMessage(messages.addCameraCostumeMsg),
                         img: cameraIcon,
-                        onClick: onNewCostumeFromCameraClick
+                        onClick: onNewCostumeFromCameraClick,
+                        hidden: true
                     },
                     {
                         title: intl.formatMessage(addFileMessage),
@@ -282,7 +283,8 @@ class CostumeTab extends React.Component {
                         onClick: this.handleFileUploadClick,
                         fileAccept: '.svg, .png, .jpg, .jpeg',
                         fileChange: this.handleCostumeUpload,
-                        fileInput: this.setFileInput
+                        fileInput: this.setFileInput,
+                        hidden: true
                     },
                     {
                         title: intl.formatMessage(messages.addSurpriseCostumeMsg),
@@ -292,7 +294,8 @@ class CostumeTab extends React.Component {
                     {
                         title: intl.formatMessage(messages.addBlankCostumeMsg),
                         img: paintIcon,
-                        onClick: this.handleNewBlankCostume
+                        onClick: this.handleNewBlankCostume,
+                        hidden: true
                     },
                     {
                         title: intl.formatMessage(addLibraryMessage),
@@ -310,7 +313,7 @@ class CostumeTab extends React.Component {
                 onDuplicateClick={this.handleDuplicateCostume}
                 onItemClick={this.handleSelectCostume}
             >
-                {target.costumes ?
+                {/*target.costumes*/ false ?
                     <PaintEditorWrapper
                         selectedCostumeIndex={this.state.selectedCostumeIndex}
                     /> :

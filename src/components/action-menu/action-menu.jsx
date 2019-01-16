@@ -141,7 +141,7 @@ class ActionMenu extends React.Component {
                 />
                 <div className={styles.moreButtonsOuter}>
                     <div className={styles.moreButtons}>
-                        {(moreButtons || []).map(({img, title, onClick: handleClick,
+                        {(moreButtons || []).filter(b => !b.hidden).map(({img, title, onClick: handleClick,
                             fileAccept, fileChange, fileInput}, keyId) => {
                             const isComingSoon = !handleClick;
                             const hasFileInput = fileInput;

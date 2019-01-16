@@ -231,6 +231,7 @@
 }
 
 .extension-button-container {
+    display: none !important;
     width: 3.75rem;
     height: 3.25rem;
     position: absolute;

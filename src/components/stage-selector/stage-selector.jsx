@@ -104,7 +104,8 @@ const StageSelector = props => {
                         onClick: onBackdropFileUploadClick,
                         fileAccept: '.svg, .png, .jpg, .jpeg', // Bitmap coming soon
                         fileChange: onBackdropFileUpload,
-                        fileInput: fileInputRef
+                        fileInput: fileInputRef,
+                        hidden: true
                     }, {
                         title: intl.formatMessage(messages.addBackdropFromSurprise),
                         img: surpriseIcon,
@@ -113,7 +114,8 @@ const StageSelector = props => {
                     }, {
                         title: intl.formatMessage(messages.addBackdropFromPaint),
                         img: paintIcon,
-                        onClick: onEmptyBackdropClick
+                        onClick: onEmptyBackdropClick,
+                        hidden: true
                     }, {
                         title: intl.formatMessage(messages.addBackdropFromLibrary),
                         img: searchIcon,

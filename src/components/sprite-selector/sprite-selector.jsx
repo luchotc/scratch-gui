@@ -124,7 +124,8 @@ const SpriteSelectorComponent = function (props) {
                         onClick: onFileUploadClick,
                         fileAccept: '.svg, .png, .jpg, .jpeg, .sprite2, .sprite3',
                         fileChange: onSpriteUpload,
-                        fileInput: spriteFileInput
+                        fileInput: spriteFileInput,
+                        hidden: true
                     }, {
                         title: intl.formatMessage(messages.addSpriteFromSurprise),
                         img: surpriseIcon,
@@ -132,7 +133,8 @@ const SpriteSelectorComponent = function (props) {
                     }, {
                         title: intl.formatMessage(messages.addSpriteFromPaint),
                         img: paintIcon,
-                        onClick: onPaintSpriteClick // TODO need real function for this
+                        onClick: onPaintSpriteClick, // TODO need real function for this
+                        hidden: true
                     }, {
                         title: intl.formatMessage(messages.addSpriteFromLibrary),
                         img: searchIcon,
